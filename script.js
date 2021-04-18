@@ -131,6 +131,41 @@ function properties(arr){
         }
     }
 
+
+    // симметричность
+
+    simm = true;
+    antiSimm = true;
+    aSimm = true
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+
+            if (arr[i][j] != arr[j][i]){
+
+                simm = false;
+            }
+
+            if (i != j){   // возможно тут неправильно и в будущем надо будет исправить 
+
+                if (arr[i][j] != 0 || arr[j][i] != 0){
+
+                    antiSimm = false; // 
+
+                }
+            }
+
+            if (arr[i][j] != 0 || arr[j][i] != 0){
+
+                aSimm = false;
+
+            }
+        }
+        
+    }
+
+
+console.log(simm, antiSimm)
     
 }
 
