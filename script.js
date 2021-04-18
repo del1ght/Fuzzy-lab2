@@ -6,7 +6,6 @@ function firstTable(){
         arr1.push(Number(document.getElementById(`a${i}`).value));
     }
 
-
     arr1 = subtractionArray(arr1);
 
     maxArr1 = maxElemOf2dArray(arr1)
@@ -14,9 +13,8 @@ function firstTable(){
     funsArr1 = arr1.map((arr) => arr.map((a) => (FunS(a, maxArr1).toFixed(3))));
 
     makeTableHTML(funsArr1)
-    console.log(test)
 
-    properties(test)
+    properties(funsArr1)
     
 }
 
@@ -99,6 +97,7 @@ function properties(arr){
     // рефлексивность
     refl = true;
     strongRefl = true;
+    strongAntiRefl = true;
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i][i] != 1) {
@@ -119,5 +118,19 @@ function properties(arr){
             } 
         }
     }
+    else{
+        outerLoop: for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if ( i != j ){
+                    if (arr[i][j] == 0){
+                        strongAntiRefl = false;
+                        break outerLoop
+                    }
+                }
+            } 
+        }
+    }
+
+    
 }
 
