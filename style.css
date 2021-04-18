@@ -1,0 +1,20 @@
+.table {
+    display: flex;
+    text-align: center;
+    position: relative;
+    width: 800px;
+}
+
+.table td,
+th {
+    padding: 5px 10px;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.table input {
+    width: 50px;
+}
+
+.check{
+    display: inline-block;
+}

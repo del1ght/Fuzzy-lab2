@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab2</title>
+    <link rel="stylesheet" href="coolstuff.css">
+</head>
+<body>
+    <div class="check">
+        <div class="table">
+            <table>
+        <tr>
+            <td>Показатель</td>
+            <td>
+                <p>x1</p>    
+            </td>
+            <td>
+                <p>x2</p>    
+            </td>
+            <td>
+                <p>x3</p>    
+            </td>
+            <td>
+                <p>x4</p>    
+            </td>
+            <td>
+                <p>x5</p>    
+            </td>
+            <td>
+                <p>x6</p>    
+            </td>
+            <td>
+                <p>x7</p>    
+            </td>
+            <td>
+                <p>x8</p>    
+            </td>
+            <td>
+                <p>x9</p>    
+            </td>
+            <td>
+                <p>x10</p>    
+            </td>
+        </tr>
+        <tr>
+            <td>Часовая<br>производительность</td>
+            <td><input type="number" id="a1" value="3070"></td>
+            <td><input type="number" id="a2" value="4140"></td>
+            <td><input type="number" id="a3" value="4860"></td>
+            <td><input type="number" id="a4" value="5400"></td>
+            <td><input type="number" id="a5" value="3520"></td>
+            <td><input type="number" id="a6" value="7350"></td>
+            <td><input type="number" id="a7" value="9450"></td>
+            <td><input type="number" id="a8" value="4800"></td>
+            <td><input type="number" id="a9" value="4320"></td>
+            <td><input type="number" id="a10" value="6000"></td>
+        </tr>
+        <tr>
+            <td>Масса, т</td>
+            <td><input type="number" id="b1" value="22"></td>
+            <td><input type="number" id="b2" value="26.4"></td>
+            <td><input type="number" id="b3" value="35"></td>
+            <td><input type="number" id="b4" value="30"></td>
+            <td><input type="number" id="b5" value="70"></td>
+            <td><input type="number" id="b6" value="75"></td>
+            <td><input type="number" id="b7" value="80"></td>
+            <td><input type="number" id="b8" value="34"></td>
+            <td><input type="number" id="b9" value="48"></td>
+            <td><input type="number" id="b10" value="55"></td>
+        </tr>
+    </table>
+    </div>
+    <div class="svoistva">
+        <fieldset>
+          <legend>Свойства</legend>
+          <p>Рефлексивно - <span id="prop1"></span></p>
+          <p>Антирефлексивно - <span id="prop2"></span></p>
+          <p>Симметрично - <span id="prop3"></span></p>
+          <p>Антисимметрично - <span id="prop4"></span></p>
+          <p>Асимметрично - <span id="prop5"></span></p>
+          <p>Линейно - <span id="prop6"></span></p>
+          <p>Транзитивно - <span id="prop7"></span></p>
+        </fieldset>
+      </div>
+    <div class="buttons">
+    <button onclick="firstTable()">Меньшую</button>
+    <button onclick="secondTable()">Одинаковы</button>
+</div>
+</div>
+
+    <div class="table" id='cont'></div>
+    <script src="test.js"></script>
+</body>
+</html>
