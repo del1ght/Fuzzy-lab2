@@ -164,8 +164,32 @@ function properties(arr){
         
     }
 
+    //транзитивность
 
-console.log(simm, antiSimm)
+    tranz = true;
+    minArr = []
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            for (let k = 0; k < arr.length; k++) {
+                minArr.push(Math.min(arr[i][k], arr[k][j]));
+                
+            }
+            mm = minArr[0];
+
+            for (let l = 1; l < arr.length; l++) {
+                if (mm < minArr[l]){
+                    mm = minArr[l];
+                }
+            }
+
+            if (arr[i][j] < mm){
+                tranz = false;
+            }
+        }
+    }
+
+
     
 }
 
