@@ -169,27 +169,33 @@ function properties(arr){
     tranz = true;
     minArr = []
 
-    for (let i = 0; i < arr.length; i++) {
+    /*for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
             for (let k = 0; k < arr.length; k++) {
                 minArr.push(Math.min(arr[i][k], arr[k][j]));
                 
             }
-            mm = minArr[0];
+            mm = Math.max(...minArr);
 
-            for (let l = 1; l < arr.length; l++) {
-                if (mm < minArr[l]){
-                    mm = minArr[l];
-                }
-            }
-
-            if (arr[i][j] < mm){
+            if (arr[i][j] < mm) {
                 tranz = false;
             }
         }
     }
+    */
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) { 
+            for (let k = 0; k < arr.length; k++) {
+                if (!(arr[i][k] >= arr[i][j] && arr[i][k] >= arr[j][k])){
+                    tranz = false;
+                }
+            } 
+        }
+    }
+    
 
 
+console.log(tranz)
     
 }
 
