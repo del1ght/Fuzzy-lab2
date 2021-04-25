@@ -1,8 +1,6 @@
 .table {
-    display: flex;
     text-align: center;
     position: relative;
-    width: 800px;
 }
 
 .table td,
@@ -15,6 +13,16 @@ th {
     width: 50px;
 }
 
-.check{
-    display: inline-block;
+.buttons {
+    padding-top: 10px
+}
+
+.bottom-part {
+    padding-top: 10px;
+    display: flex;
+}
+
+.properties {
+    padding-left: 10px;
+    text-align: left;
 }
