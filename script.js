@@ -212,7 +212,16 @@ function properties(arr){
         }        
     }
 
-console.log(strongLinear, weakLinear)
+
+    // вывод в fieldset
+
+    document.getElementById('prop1').innerHTML = refl ? (strongRefl ? 'Сильно' : 'Слабо') : 'Нет';
+    document.getElementById('prop2').innerHTML = !refl ? (strongAntiRefl ? 'Сильно' : 'Слабо') : 'Нет';
+    document.getElementById('prop3').innerHTML = simm ? 'Да' : 'Нет';
+    document.getElementById('prop4').innerHTML = antiSimm ? 'Да' : 'Нет';
+    document.getElementById('prop5').innerHTML = aSimm ? 'Да' : 'Нет';
+    document.getElementById('prop6').innerHTML = strongLinear ? 'Сильная' : (weakLinear ? 'Слабая' : 'Нет');
+    document.getElementById('prop7').innerHTML = tranz ? 'Да' : 'Нет';
     
 }
 
