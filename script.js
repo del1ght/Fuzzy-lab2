@@ -1,3 +1,15 @@
+var result = "<table border=1>";
+    for(var i=0; i<10; i++) {
+        result += "<tr>";
+        for(var j=0; j<10; j++){
+            result += "<td>"+'-------'+"</td>";
+        }
+        result += "</tr>";
+    }
+    result += "</table>";
+
+document.getElementById('cont').innerHTML = result;
+
 function firstTable(){
     let arr1 = [];
     let maxArr1;
