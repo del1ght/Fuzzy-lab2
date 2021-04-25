@@ -196,8 +196,23 @@ function properties(arr){
     }
     
 
+    // линейность
 
-console.log(tranz)
+    strongLinear = true;
+    weakLinear = true;
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if ( !( arr[i][j] == 1 || arr[j][i] == 1 ) ){
+                strongLinear = false;
+            }
+            if ( !( arr[i][j] > 0 || arr[j][i] > 0 ) ){
+                weakLinear = false;
+            }
+        }        
+    }
+
+console.log(strongLinear, weakLinear)
     
 }
 
