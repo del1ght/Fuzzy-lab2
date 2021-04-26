@@ -1,16 +1,16 @@
 var result = "<table border=1>";
-    for(var i=0; i<10; i++) {
-        result += "<tr>";
-        for(var j=0; j<10; j++){
-            result += "<td>"+'-------'+"</td>";
-        }
-        result += "</tr>";
+for (var i = 0; i < 10; i++) {
+    result += "<tr>";
+    for (var j = 0; j < 10; j++) {
+        result += "<td>" + '-------' + "</td>";
     }
-    result += "</table>";
+    result += "</tr>";
+}
+result += "</table>";
 
 document.getElementById('cont').innerHTML = result;
 
-function firstTable(){
+function firstTable() {
     let arr1 = [];
     let maxArr1;
     let funsArr1 = [];
@@ -27,10 +27,10 @@ function firstTable(){
     makeTableHTML(funsArr1)
 
     properties(funsArr1)
-    
+
 }
 
-function secondTable(){
+function secondTable() {
     let arr2 = [];
     let funtArr2 = [];
     let maxArr2;
@@ -44,14 +44,17 @@ function secondTable(){
     maxArr2 = maxElemOf2dArray(arr2);
     minArr2 = -maxArr2;
     funtArr2 = arr2.map((arr) => arr.map((a) => (FunT(a, minArr2, maxArr2).toFixed(3))));
-    
+
     makeTableHTML(funtArr2);
 
     properties(funtArr2)
 
 }
-function subtractionArray(arr){
-    tmpArr = [[]];
+
+function subtractionArray(arr) {
+    tmpArr = [
+        []
+    ];
     for (let i = 0; i < arr.length; i++) {
         tmpArr[i] = [];
 
@@ -64,7 +67,7 @@ function subtractionArray(arr){
     return tmpArr
 }
 
-function maxElemOf2dArray(arr){
+function maxElemOf2dArray(arr) {
     max = arr[0][0]
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
@@ -74,27 +77,28 @@ function maxElemOf2dArray(arr){
     return max
 }
 
-function FunS(a, max){
+function FunS(a, max) {
     mean = max / 2
     if (a < 0) return 0
     else if (a >= 0 && a <= mean) return 2 * (a / max) ** 2
-    else if (a >= mean && a <= max) 
+    else if (a >= mean && a <= max)
         return 1 - 2 * ((a - max) / (max - 0) * (a - max) / (max - 0))
     else if (a > max) return 1
 }
 
-function FunT(a, min, max){
+function FunT(a, min, max) {
     if (a <= min) return 0
     else if (a >= min && a <= 0) return (a + max) / max
     else if (a >= 0 && a <= max) return (max - a) / max
-    else if (a >= max) return 0 
+    else if (a >= max) return 0
 }
+
 function makeTableHTML(myArray) {
     var result = "<table border=1>";
-    for(var i=0; i<myArray.length; i++) {
+    for (var i = 0; i < myArray.length; i++) {
         result += "<tr>";
-        for(var j=0; j<myArray[i].length; j++){
-            result += "<td>"+myArray[i][j]+"</td>";
+        for (var j = 0; j < myArray[i].length; j++) {
+            result += "<td>" + myArray[i][j] + "</td>";
         }
         result += "</tr>";
     }
@@ -104,7 +108,7 @@ function makeTableHTML(myArray) {
 }
 
 
-function properties(arr){
+function properties(arr) {
 
     // рефлексивность
     refl = true;
@@ -115,33 +119,32 @@ function properties(arr){
         if (arr[i][i] != 1) {
             refl = false;
             break
-        }  
+        }
     }
-    
-    if (refl){
+
+    if (refl) {
         strongAntiRefl = false;
         outerLoop: for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < arr.length; j++) {
-                if ( i != j ){
-                    if (arr[i][j] == 1){
+                if (i != j) {
+                    if (arr[i][j] == 1) {
                         strongRefl = false;
                         break outerLoop
                     }
                 }
-            } 
+            }
         }
-    }
-    else{
+    } else {
         strongRefl = false;
         outerLoop: for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < arr.length; j++) {
-                if ( i != j ){
-                    if (arr[i][j] == 0){
+                if (i != j) {
+                    if (arr[i][j] == 0) {
                         strongAntiRefl = false;
                         break outerLoop
                     }
                 }
-            } 
+            }
         }
     }
 
@@ -155,27 +158,27 @@ function properties(arr){
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
 
-            if (arr[i][j] != arr[j][i]){
+            if (arr[i][j] != arr[j][i]) {
 
                 simm = false;
             }
 
-            if (i != j){   // возможно тут неправильно и в будущем надо будет исправить 
+            if (i != j) { // возможно тут неправильно и в будущем надо будет исправить 
 
-                if (arr[i][j] != 0 || arr[j][i] != 0){
+                if (arr[i][j] != 0 || arr[j][i] != 0) {
 
                     antiSimm = false; // 
 
                 }
             }
 
-            if (arr[i][j] != 0 || arr[j][i] != 0){
+            if (arr[i][j] != 0 || arr[j][i] != 0) {
 
                 aSimm = false;
 
             }
         }
-        
+
     }
 
     //транзитивность
@@ -198,15 +201,15 @@ function properties(arr){
     }
     */
     for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) { 
+        for (let j = 0; j < arr.length; j++) {
             for (let k = 0; k < arr.length; k++) {
-                if (!(arr[i][k] >= arr[i][j] && arr[i][k] >= arr[j][k])){
+                if (!(arr[i][k] >= arr[i][j] && arr[i][k] >= arr[j][k])) {
                     tranz = false;
                 }
-            } 
+            }
         }
     }
-    
+
 
     // линейность
 
@@ -215,13 +218,13 @@ function properties(arr){
 
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
-            if ( !( arr[i][j] == 1 || arr[j][i] == 1 ) ){
+            if (!(arr[i][j] == 1 || arr[j][i] == 1)) {
                 strongLinear = false;
             }
-            if ( !( arr[i][j] > 0 || arr[j][i] > 0 ) ){
+            if (!(arr[i][j] > 0 || arr[j][i] > 0)) {
                 weakLinear = false;
             }
-        }        
+        }
     }
 
 
@@ -234,6 +237,5 @@ function properties(arr){
     document.getElementById('prop5').innerHTML = aSimm ? 'Да' : 'Нет';
     document.getElementById('prop6').innerHTML = strongLinear ? 'Сильная' : (weakLinear ? 'Слабая' : 'Нет');
     document.getElementById('prop7').innerHTML = tranz ? 'Да' : 'Нет';
-    
-}
 
+}
