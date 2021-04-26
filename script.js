@@ -98,7 +98,13 @@ function makeTableHTML(myArray) {
     for (var i = 0; i < myArray.length; i++) {
         result += "<tr>";
         for (var j = 0; j < myArray[i].length; j++) {
-            result += "<td>" + myArray[i][j] + "</td>";
+            if (i == j){
+                result += "<td bgcolor='lightblue'>" + myArray[i][j] + "</td>";
+            }
+            else{
+                result += "<td>" + myArray[i][j] + "</td>";
+            }
+            
         }
         result += "</tr>";
     }
