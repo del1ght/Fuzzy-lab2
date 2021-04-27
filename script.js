@@ -169,7 +169,7 @@ function properties(arr) {
                 simm = false;
             }
 
-            if (i != j) { // возможно тут неправильно и в будущем надо будет исправить 
+            if (i != j) { 
 
                 if (arr[i][j] != 0 || arr[j][i] != 0) {
 
@@ -192,20 +192,6 @@ function properties(arr) {
     tranz = true;
     minArr = []
 
-    /*for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < arr.length; j++) {
-            for (let k = 0; k < arr.length; k++) {
-                minArr.push(Math.min(arr[i][k], arr[k][j]));
-                
-            }
-            mm = Math.max(...minArr);
-
-            if (arr[i][j] < mm) {
-                tranz = false;
-            }
-        }
-    }
-    */
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
             for (let k = 0; k < arr.length; k++) {
