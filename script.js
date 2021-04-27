@@ -18,7 +18,7 @@ function firstTable() {
         arr1.push(Number(document.getElementById(`a${i}`).value));
     }
 
-    arr1 = subtractionArray(arr1);
+    arr1 = subtractionArrayFunS(arr1);
 
     maxArr1 = maxElemOf2dArray(arr1)
 
@@ -39,11 +39,12 @@ function secondTable() {
         arr2.push(Number(document.getElementById(`b${i}`).value));
     }
 
-    arr2 = subtractionArray(arr2);
+    arr2 = subtractionArrayFunT(arr2);
 
     maxArr2 = maxElemOf2dArray(arr2);
-    minArr2 = -maxArr2;
-    funtArr2 = arr2.map((arr) => arr.map((a) => (FunT(a, minArr2, maxArr2).toFixed(3))));
+
+    console.log(minArr2)
+    funtArr2 = arr2.map((arr) => arr.map((a) => (FunT(a, maxArr2).toFixed(3))));
 
     makeTableHTML(funtArr2);
 
@@ -51,7 +52,7 @@ function secondTable() {
 
 }
 
-function subtractionArray(arr) {
+function subtractionArrayFunS(arr) {
     tmpArr = [
         []
     ];
@@ -59,7 +60,23 @@ function subtractionArray(arr) {
         tmpArr[i] = [];
 
         for (let j = 0; j < arr.length; j++) {
-            res = arr[i] - arr[j];
+            res = (arr[i] - arr[j]);
+            tmpArr[i][j] = Number(res.toFixed(3));
+
+        }
+    }
+    return tmpArr
+}
+
+function subtractionArrayFunT(arr) {
+    tmpArr = [
+        []
+    ];
+    for (let i = 0; i < arr.length; i++) {
+        tmpArr[i] = [];
+
+        for (let j = 0; j < arr.length; j++) {
+            res = Math.abs(arr[i] - arr[j]);
             tmpArr[i][j] = Number(res.toFixed(3));
 
         }
@@ -86,11 +103,9 @@ function FunS(a, max) {
     else if (a > max) return 1
 }
 
-function FunT(a, min, max) {
-    if (a <= min) return 0
-    else if (a >= min && a <= 0) return (a + max) / max
-    else if (a >= 0 && a <= max) return (max - a) / max
-    else if (a >= max) return 0
+function FunT(x, max) {
+    if (x >= 0 && x <= max) return (max - x) / max;
+    else return 0;
 }
 
 function makeTableHTML(myArray) {
@@ -98,13 +113,12 @@ function makeTableHTML(myArray) {
     for (var i = 0; i < myArray.length; i++) {
         result += "<tr>";
         for (var j = 0; j < myArray[i].length; j++) {
-            if (i == j){
+            if (i == j) {
                 result += "<td bgcolor='lightblue'>" + myArray[i][j] + "</td>";
-            }
-            else{
+            } else {
                 result += "<td>" + myArray[i][j] + "</td>";
             }
-            
+
         }
         result += "</tr>";
     }
@@ -169,19 +183,18 @@ function properties(arr) {
                 simm = false;
             }
 
-            if (i != j) { 
-
-                if (arr[i][j] != 0 || arr[j][i] != 0) {
-
-                    antiSimm = false; // 
-
-                }
-            }
-
-            if (arr[i][j] != 0 || arr[j][i] != 0) {
-
+            if (arr[i][i] == 1) {
                 aSimm = false;
 
+                if (Math.min(arr[i][j], arr[j][i]) != 0) {
+                    antiSimm = false;
+                }
+            } else {
+                antiSimm = false;
+
+                if (Math.min(arr[i][j], arr[j][i]) != 0) {
+                    aSimm = false;
+                }
             }
         }
 
@@ -195,13 +208,22 @@ function properties(arr) {
     for (let i = 0; i < arr.length; i++) {
         for (let j = 0; j < arr.length; j++) {
             for (let k = 0; k < arr.length; k++) {
-                if (!(arr[i][k] >= arr[i][j] && arr[i][k] >= arr[j][k])) {
-                    tranz = false;
+                minArr.push(Math.min(arr[i][k], arr[k][j]));
+
+            }
+            mm = minArr[0];
+
+            for (let l = 1; l < arr.length; l++) {
+                if (mm < minArr[l]) {
+                    mm = minArr[l];
                 }
+            }
+
+            if (arr[i][j] < mm) {
+                tranz = false;
             }
         }
     }
-
 
     // линейность
 
